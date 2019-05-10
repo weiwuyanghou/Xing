@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,13 +39,18 @@ public class Add extends Fragment  implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-       // ContentValues contentValues = new ContentValues();
+        shouye fragment1 = null;
+        String title = getString(R.string.app_name);
+        // ContentValues contentValues = new ContentValues();
         switch (v.getId()) {
             case R.id.abt1:
+
                 break;
             case R.id.abt2:
-
-
+                fragment1 = new shouye();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.cont_frame, fragment1);
+                ft.commit();
                 break;
         }
     }
