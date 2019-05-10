@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class shouye extends Fragment implements View.OnClickListener{
+public class Shouye extends Fragment implements View.OnClickListener{
     private Button bt1,bt2;
     @Nullable
     @Override

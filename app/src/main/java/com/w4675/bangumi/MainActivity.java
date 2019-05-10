@@ -123,18 +123,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void displayView(int viewId) {
 
         String title = getString(R.string.app_name);   //初始化标题栏
-        shouye fragment1 = null;     //第一个界面
-        jiankong fragment2 = null;      //第二个界面
+        Shouye fragment1 = null;     //第一个界面
+        Jiankong fragment2 = null;      //第二个界面
         Hujiao fragment3 = null;       //第三个界面
-        zixun fragment4 = null;     //第四个界面
+        Zixun fragment4 = null;     //第四个界面
         //    fragments = new ArrayList<>();
         switch (viewId) {
             case R.id.shouye:
-                fragment1 = new shouye();
+                fragment1 = new Shouye();
                 title  = "首页";
                 break;
             case R.id.jiankong:
-                fragment2 = new jiankong();
+                fragment2 = new Jiankong();
                 title = "监控";
                 break;
             case R.id.hujiao:
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 title = "呼叫";
                 break;
             case R.id.zixun:
-                fragment4 =new zixun();
+                fragment4 =new Zixun();
                 title = "资讯";
                 break;
 
