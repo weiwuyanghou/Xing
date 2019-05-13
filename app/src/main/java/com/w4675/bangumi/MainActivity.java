@@ -1,9 +1,7 @@
 package com.w4675.bangumi;
 
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -17,11 +15,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.TextView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -52,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
     //   creatTable();   //创建数据库
@@ -75,13 +70,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
         */
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         // Example of a call to a native method
@@ -90,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -123,14 +118,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void displayView(int viewId) {
 
         String title = getString(R.string.app_name);   //初始化标题栏
-        Shouye fragment1 = null;     //第一个界面
+        First fragment1 = null;     //第一个界面
         Jiankong fragment2 = null;      //第二个界面
         Hujiao fragment3 = null;       //第三个界面
         Zixun fragment4 = null;     //第四个界面
+        Search chazhao=null;        //查询页面
         //    fragments = new ArrayList<>();
         switch (viewId) {
             case R.id.shouye:
-                fragment1 = new Shouye();
+                fragment1 = new First();
                 title  = "首页";
                 break;
             case R.id.jiankong:
@@ -145,7 +141,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragment4 =new Zixun();
                 title = "资讯";
                 break;
-
+            case R.id.search:
+                chazhao = new Search();
+                title  = "查询";
+                break;
         }
 
         if (fragment1 != null) {
@@ -171,13 +170,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ft.replace(R.id.cont_frame, fragment4);
             ft.commit();
         }
+        if (chazhao != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.cont_frame, chazhao);
+            ft.commit();
+        }
 
         // set the toolbar title  更改标题栏
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(title);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
     }

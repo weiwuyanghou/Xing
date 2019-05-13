@@ -48,7 +48,7 @@
                 android:textSize="25dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
-                android:text="管理" />
+                android:text="查看" />
 
         </RelativeLayout>
     </FrameLayout>

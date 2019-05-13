@@ -22,8 +22,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:text="添加老人信息"
                 android:textSize="50dp" />
 
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/t1"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 android:text="编号："
                 android:textSize="20dp"
                 tools:ignore="MissingConstraints" />
@@ -152,12 +152,27 @@
                 android:text="缴费金额："
                 android:textSize="20dp"
                 tools:ignore="MissingConstraints" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textview10"
+                android:layout_below="@+id/textView9"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="房间："
+                android:textSize="20dp"/>
+            <EditText
+                android:id="@+id/et8"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textview10"
+                android:layout_toRightOf="@+id/textview10" />
 
             <Button
                 android:id="@+id/abt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/et7"
+                android:layout_below="@+id/et8"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="20dp"
                 android:text="提交" />
@@ -166,7 +181,7 @@
                 android:id="@+id/abt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/et7"
+                android:layout_below="@+id/et8"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="60dp"

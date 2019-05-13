@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <EditText
+            android:id="@+id/sousuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="100dp"
+            android:layout_toLeftOf="@+id/sousuo1"/>
+        <ImageView
+            android:id="@+id/sousuo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/searchbig"
+            />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="编号"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/sousuo"
+        />
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/checkBox"
+
+            />
+        <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="房间号"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/checkBox1"
+        />
+        <Button
+            android:id="@+id/b1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/checkBox2"
+            android:layout_marginTop="80dp"
+            android:text="查询"
+            />
+        <Button
+            android:id="@+id/b2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/checkBox2"
+            android:layout_marginTop="80dp"
+            android:text="重置"
+            />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

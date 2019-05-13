@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_alignParentLeft="true"
+            android:layout_width="@dimen/listw"
+            android:layout_height="@dimen/listh"
+            android:src="@drawable/xiyang"
+            />
+
+        <TextView
+            android:id="@+id/textname1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/image1"
+            android:textSize="40dp"
+            android:maxEms="5"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text=""
+            />
+        <TextView
+            android:id="@+id/textnianling1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:textSize="40dp"
+            android:singleLine="true"
+            android:text=""/>
+        <TextView
+            android:id="@+id/textdata1"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_toRightOf="@+id/image1"
+            android:layout_below="@+id/textname1"
+            android:textSize="40dp"
+            android:text=""
+            android:maxLines="3"
+            android:ellipsize="end"/>
+
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
