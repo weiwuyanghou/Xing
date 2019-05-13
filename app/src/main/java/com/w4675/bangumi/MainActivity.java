@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Jiankong fragment2 = null;      //第二个界面
         Hujiao fragment3 = null;       //第三个界面
         Zixun fragment4 = null;     //第四个界面
+        Search chazhao=null;        //查询页面
         //    fragments = new ArrayList<>();
         switch (viewId) {
             case R.id.shouye:
@@ -145,7 +146,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragment4 =new Zixun();
                 title = "资讯";
                 break;
-
+            case R.id.search:
+                chazhao = new Search();
+                title  = "查询";
+                break;
         }
 
         if (fragment1 != null) {
@@ -169,6 +173,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (fragment4 != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.cont_frame, fragment4);
+            ft.commit();
+        }
+        if (chazhao != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.cont_frame, chazhao);
             ft.commit();
         }
 

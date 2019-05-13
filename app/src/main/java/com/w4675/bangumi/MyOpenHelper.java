@@ -20,7 +20,8 @@ public class MyOpenHelper extends SQLiteOpenHelper {
                 "address varchar(400)," +
                 "telephone varchar(100)," +
                 "feiyong varchar(100000)," +
-                "biaoshi varchar(10))");
+                "biaoshi varchar(10)," +
+                "fangjian varchar(100))");
     }
 
     @Override
