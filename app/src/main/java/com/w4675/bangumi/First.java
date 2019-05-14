@@ -42,6 +42,8 @@ public class First extends Fragment implements View.OnClickListener{
                 if (guanli != null) {
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(R.id.cont_frame, guanli);
+                    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    ft.addToBackStack(null);
                     ft.commit();
                 }
                 break;

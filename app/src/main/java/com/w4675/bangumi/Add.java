@@ -65,21 +65,21 @@ public class Add extends Fragment  implements View.OnClickListener{
                 contentValues.put("telephone", telephone);
                 contentValues.put("feiyong", feiyong);
                 contentValues.put("biaoshi", 1);
-                Cursor cursor = db.query("information",new String[]{"id"},"id = ?" ,new String[]{aet1.getText().toString()},null,null,null);
-              while (cursor.moveToNext()){
-                String check = cursor.getString(cursor.getColumnIndex("id"));
+      //          Cursor cursor = db.query("information",new String[]{"id"},"id = ?" ,new String[]{aet1.getText().toString()},null,null,null);
+        //      while (cursor.moveToNext()){
+          //      String check = cursor.getString(cursor.getColumnIndex("id"));
  //               cursor.close();
-                  if (id.equals(check)==false)
+            //      if (id.equals(check)==false)
                 {
         //           while (cursor.moveToNext()) {
                        db.insert("information", null, contentValues);
                        Toast.makeText(getContext(), "添加成功！", Toast.LENGTH_SHORT).show();
-                   }
+              //     }
                //    }
-               else
-                {
-                    Toast.makeText(getContext(),"添加失败！id重复",Toast.LENGTH_SHORT).show();
-                }
+             //  else
+               // {
+                //    Toast.makeText(getContext(),"添加失败！id重复",Toast.LENGTH_SHORT).show();
+               // }
 
                 }
                 break;

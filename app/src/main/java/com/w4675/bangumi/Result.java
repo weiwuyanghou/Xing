@@ -1,6 +1,6 @@
 package com.w4675.bangumi;
 
-public class Xianshi {
+public class Result {
     private String name;
     private String nianling;
     private String fangjian;
@@ -21,11 +21,11 @@ public class Xianshi {
         this.nianling = nianling;
     }
 
-public String getFangjian() { return fangjian; }
-public void setFangjian(String chuangwei ){ this.fangjian = chuangwei; }
+    public String getFangjian() { return fangjian; }
+    public void setFangjian(String chuangwei ){ this.fangjian = chuangwei; }
     public String getid() { return id; }
     public void setid(String id ){ this.id = id; }
-    public Xianshi(String name, String nianling, String fangjian,String id) {
+    public Result(String name, String nianling, String fangjian,String id) {
         super();
         this.name = name;
         this.nianling =nianling;
@@ -33,4 +33,4 @@ public void setFangjian(String chuangwei ){ this.fangjian = chuangwei; }
         this.id=id;
 
     }
-        }
+}
