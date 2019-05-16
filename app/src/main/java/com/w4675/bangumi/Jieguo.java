@@ -39,6 +39,7 @@ public class Jieguo extends Fragment {
             {
                 case "id":
 //                    Toast.makeText(getContext(),getArguments().getString("id"),Toast.LENGTH_SHORT).show();
+                    try{
                      Cursor cursor = db.query("information",new String[]{"name","years","fangjian","id"},"id = ?",new String[]{getArguments().getString("id")},null,null,null);
                      while (cursor.moveToNext()){
                          String fangjian = cursor.getString(cursor.getColumnIndex("fangjian"));
@@ -47,9 +48,17 @@ public class Jieguo extends Fragment {
                          String id = cursor.getString(cursor.getColumnIndex("id"));
                          Result result = new Result(name,nianling,fangjian,id);
                          resultList.add(result);}
+//                        Toast.makeText(getContext(),"查询成功！",Toast.LENGTH_SHORT).show();
+                    }
+                         catch (Exception e){
+                        Toast.makeText(getContext(),"查无此编号！",Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+
+                         }
                  break;
             case "xingming":
 //                Toast.makeText(getContext(),getArguments().getString("name"),Toast.LENGTH_SHORT).show();
+                try{
                 Cursor cursor1 = db.query("information",new String[]{"name","years","fangjian","id"},"name = ?",new String[]{getArguments().getString("name")},null,null,null);
                 while (cursor1.moveToNext()){
                     String fangjian = cursor1.getString(cursor1.getColumnIndex("fangjian"));
@@ -58,9 +67,17 @@ public class Jieguo extends Fragment {
                     String id = cursor1.getString(cursor1.getColumnIndex("id"));
                     Result result = new Result(name,nianling,fangjian,id);
                     resultList.add(result);}
+//                Toast.makeText(getContext(),"查询成功！",Toast.LENGTH_SHORT).show();
+            }
+                         catch (Exception e){
+                    Toast.makeText(getContext(),"查无此姓名！",Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+
+        }
                 break;
             case "fangjian":
 //                Toast.makeText(getContext(),getArguments().getString("fangjian"),Toast.LENGTH_SHORT).show();
+                try{
                 Cursor cursor2 = db.query("information",new String[]{"name","years","fangjian","id"},"fangjian = ?",new String[]{getArguments().getString("fangjian")},null,null,null);
                 while (cursor2.moveToNext()){
                     String fangjian = cursor2.getString(cursor2.getColumnIndex("fangjian"));
@@ -69,6 +86,13 @@ public class Jieguo extends Fragment {
                     String id = cursor2.getString(cursor2.getColumnIndex("id"));
                     Result result = new Result(name,nianling,fangjian,id);
                     resultList.add(result);}
+//                Toast.makeText(getContext(),"查询成功！",Toast.LENGTH_SHORT).show();
+            }
+                         catch (Exception e){
+                    Toast.makeText(getContext(),"此房间无人！",Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+
+        }
                 break;
         }
         JieguoAdapter jieguoAdapter =new JieguoAdapter();

@@ -37,17 +37,17 @@
             android:textSize="30dp"
             android:singleLine="true"
             android:text=""/>
+
         <TextView
             android:id="@+id/textdata1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/image1"
-            android:layout_alignParentBottom="true"
             android:layout_below="@+id/textname1"
-            android:textSize="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/image1"
             android:singleLine="true"
             android:text=""
-/>
+            android:textSize="30dp" />
         <TextView
             android:id="@+id/textbianhao1"
             android:layout_width="wrap_content"
