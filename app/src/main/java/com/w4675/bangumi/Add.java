@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 public class Add extends Fragment  implements View.OnClickListener{
     private Button bt1,bt2;
-    private EditText aet1,aet2,aet3,aet4,aet5,aet6,aet7;
+    private EditText aet1,aet2,aet3,aet4,aet5,aet6,aet7,aet8;
     private SQLiteDatabase db = null;
     private MyOpenHelper helper = null;
     @Nullable
@@ -36,6 +36,7 @@ public class Add extends Fragment  implements View.OnClickListener{
         aet5=view.findViewById(R.id.et5);
         aet6=view.findViewById(R.id.et6);
         aet7=view.findViewById(R.id.et7);
+        aet8=view.findViewById(R.id.et8);
         return view;
     }
 
@@ -57,6 +58,7 @@ public class Add extends Fragment  implements View.OnClickListener{
                 String address = aet5.getText().toString();
                 String telephone = aet6.getText().toString();
                 String feiyong = aet7.getText().toString();
+                String fangjian=aet8.getText().toString();
                 contentValues.put("id", id);
                 contentValues.put("name", name);
                 contentValues.put("sex", sex);
@@ -65,6 +67,7 @@ public class Add extends Fragment  implements View.OnClickListener{
                 contentValues.put("telephone", telephone);
                 contentValues.put("feiyong", feiyong);
                 contentValues.put("biaoshi", 1);
+                contentValues.put("fangjian",fangjian);
       //          Cursor cursor = db.query("information",new String[]{"id"},"id = ?" ,new String[]{aet1.getText().toString()},null,null,null);
         //      while (cursor.moveToNext()){
           //      String check = cursor.getString(cursor.getColumnIndex("id"));
