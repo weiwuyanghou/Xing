@@ -36,10 +36,10 @@ public class Zixun extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment2, container, false);
        // ListView listView=view.findViewById(R.id.lv);
-        URL url = null;
-        WebView webView=view.findViewById(R.id.ww);
-       webView .getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://www.baidu.com/");
+     //   URL url = null;
+    //    WebView webView=view.findViewById(R.id.ww);
+   //    webView .getSettings().setJavaScriptEnabled(true);
+   //     webView.loadUrl("https://www.baidu.com/");
   //      JsoupImage();
         return view;
     }

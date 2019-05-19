@@ -50,41 +50,44 @@ public class Add extends Fragment  implements View.OnClickListener{
             case R.id.abt1:
                 helper = new MyOpenHelper(getContext());
                 db = helper.getReadableDatabase();
-//                try {
-                String id = aet1.getText().toString();
-                String name = aet2.getText().toString();
-                String sex = aet3.getText().toString();
-                String year = aet4.getText().toString();
-                String address = aet5.getText().toString();
-                String telephone = aet6.getText().toString();
-                String feiyong = aet7.getText().toString();
-                String fangjian=aet8.getText().toString();
-                contentValues.put("id", id);
-                contentValues.put("name", name);
-                contentValues.put("sex", sex);
-                contentValues.put("years", year);
-                contentValues.put("address", address);
-                contentValues.put("telephone", telephone);
-                contentValues.put("feiyong", feiyong);
-                contentValues.put("biaoshi", 1);
-                contentValues.put("fangjian",fangjian);
-      //          Cursor cursor = db.query("information",new String[]{"id"},"id = ?" ,new String[]{aet1.getText().toString()},null,null,null);
-        //      while (cursor.moveToNext()){
-          //      String check = cursor.getString(cursor.getColumnIndex("id"));
- //               cursor.close();
-            //      if (id.equals(check)==false)
-                {
-        //           while (cursor.moveToNext()) {
-                       db.insert("information", null, contentValues);
-                       Toast.makeText(getContext(), "添加成功！", Toast.LENGTH_SHORT).show();
-              //     }
-               //    }
-             //  else
-               // {
-                //    Toast.makeText(getContext(),"添加失败！id重复",Toast.LENGTH_SHORT).show();
-               // }
-
+   //            try {
+                    String id = aet1.getText().toString();
+                    String name = aet2.getText().toString();
+                    String sex = aet3.getText().toString();
+                    String year = aet4.getText().toString();
+                    String address = aet5.getText().toString();
+                    String telephone = aet6.getText().toString();
+                    String feiyong = aet7.getText().toString();
+                    String fangjian = aet8.getText().toString();
+                    contentValues.put("id", id);
+                    contentValues.put("name", name);
+                    contentValues.put("sex", sex);
+                    contentValues.put("years", year);
+                    contentValues.put("address", address);
+                    contentValues.put("telephone", telephone);
+                    contentValues.put("feiyong", feiyong);
+                    contentValues.put("biaoshi", 1);
+                    contentValues.put("fangjian", fangjian);
+                    //          Cursor cursor = db.query("information",new String[]{"id"},"id = ?" ,new String[]{aet1.getText().toString()},null,null,null);
+                    //      while (cursor.moveToNext()){
+                    //      String check = cursor.getString(cursor.getColumnIndex("id"));
+                    //               cursor.close();
+                    //      if (id.equals(check)==false)
+                    {
+                        //           while (cursor.moveToNext()) {
+                        db.insert("information", null, contentValues);
+                        Toast.makeText(getContext(), "添加成功！", Toast.LENGTH_SHORT).show();
+                        getFragmentManager().popBackStack();
+                    }
+  //              }
+                //  else
+/*                catch (Exception e) {
+                    getFragmentManager().popBackStack();
+                    Toast.makeText(getContext(), "添加失败！id重复", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
                 }
+*/
+
                 break;
             case R.id.abt2:
                 fragment1 = new Shouye();

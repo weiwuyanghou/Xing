@@ -21,8 +21,8 @@ public class Xianshi {
         this.nianling = nianling;
     }
 
-public String getFangjian() { return fangjian; }
-public void setFangjian(String chuangwei ){ this.fangjian = chuangwei; }
+    public String getFangjian() { return fangjian; }
+    public void setFangjian(String chuangwei ){ this.fangjian = chuangwei; }
     public String getid() { return id; }
     public void setid(String id ){ this.id = id; }
     public Xianshi(String name, String nianling, String fangjian,String id) {

@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private int tabCount = 6;
     private List<String> tabs;
     private List<Fragment> fragments;
+    private Intent intent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,9 +125,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         String title = getString(R.string.app_name);   //初始化标题栏
         Shouye fragment1 = null;     //第一个界面
-        Jiankong fragment2 = null;      //第二个界面
         Hujiao fragment3 = null;       //第三个界面
-        Zixun fragment4 = null;     //第四个界面
+        Zixun fragment2 = null;     //第四个界面
         Search chazhao=null;        //查询页面
         //    fragments = new ArrayList<>();
         switch (viewId) {
@@ -135,15 +135,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 title  = "首页";
                 break;
             case R.id.jiankong:
-                fragment2 = new Jiankong();
-                title = "监控";
+            //    title = "监控";
+                if(intent==null) {
+                    intent = new Intent();
+                }
+                intent.setClass(MainActivity.this, Jiankong.class);
+                startActivity(intent);
                 break;
             case R.id.hujiao:
                 fragment3 = new Hujiao();
                 title = "呼叫";
                 break;
             case R.id.zixun:
-                fragment4 =new Zixun();
+                fragment2 =new Zixun();
                 title = "资讯";
                 break;
             case R.id.search:
@@ -158,11 +162,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ft.commit();
         }
 
-        if (fragment2 != null) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.cont_frame, fragment2);
-            ft.commit();
-        }
+
 
         if (fragment3 != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -170,9 +170,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ft.commit();
         }
 
-        if (fragment4 != null) {
+        if (fragment2 != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.cont_frame, fragment4);
+            ft.replace(R.id.cont_frame, fragment2);
             ft.commit();
         }
         if (chazhao != null) {

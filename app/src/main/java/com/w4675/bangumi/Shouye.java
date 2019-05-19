@@ -33,6 +33,8 @@ public class Shouye extends Fragment implements View.OnClickListener{
                 if (fragment1 != null) {
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(R.id.cont_frame, fragment1);
+                    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    ft.addToBackStack(null);
                     ft.commit();
                 }
                 break;
