@@ -205,6 +205,7 @@ public class Zixun extends Fragment {
              textdata.setText(c.getShijian());
              Log.e("tag",c.getDizhi());
              return v;
+    //
          }
      }
 }
