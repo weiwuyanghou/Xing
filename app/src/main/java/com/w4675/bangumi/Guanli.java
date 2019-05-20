@@ -118,6 +118,7 @@ public class Guanli extends Fragment {
                                 public void onClick(View v) {
                                     Toast.makeText(getContext(),"已删除！",Toast.LENGTH_SHORT).show();
                                     db.delete("information","id = ?" ,new String[]{ Textid.getText().toString()});
+                                    dialogBuilder1.cancel();
                                 }
                             })
                             .setButton2Click(new View.OnClickListener() {

@@ -2,6 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
+<group android:id="@+id/fz1"
+    android:checkableBehavior="single">
+    <item
+        android:id="@+id/denglu"
+        android:title="登录"/>
+</group>
+    <group android:id="@+id/fz2"
+        android:checkableBehavior="single">
     <item
         android:id="@+id/shouye"
         android:title="首页" />
@@ -18,5 +26,5 @@
     <item
         android:id="@+id/zixun"
         android:title="资讯" />>
-
+</group>
 </menu>

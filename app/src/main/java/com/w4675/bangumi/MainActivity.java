@@ -16,6 +16,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -128,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Hujiao fragment3 = null;       //第三个界面
         Zixun fragment2 = null;     //第四个界面
         Search chazhao=null;        //查询页面
+
         //    fragments = new ArrayList<>();
         switch (viewId) {
             case R.id.shouye:
@@ -154,6 +156,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 chazhao = new Search();
                 title  = "查询";
                 break;
+
         }
 
         if (fragment1 != null) {
