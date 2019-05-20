@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.w4675.bangumi"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -39,7 +39,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation files('.externalNativeBuild/jsoup-1.11.3.jar')
     implementation files('.externalNativeBuild/glide-3.6.0.jar')
     implementation 'com.github.sd6352051:NiftyDialogEffects:v1.0.3'
+    implementation files('.externalNativeBuild/jsoup-1.12.1.jar')
 }

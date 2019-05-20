@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints"
+       >
+
+        <TextView
+            android:id="@+id/txv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:textSize="20dp"
+
+             />
+
+        <TextView
+            android:id="@+id/txv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txv1"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:layout_alignParentBottom="true"
+             />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

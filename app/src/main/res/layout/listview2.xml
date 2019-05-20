@@ -4,39 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
         <ImageView
             android:id="@+id/image1"
-            android:layout_alignParentLeft="true"
             android:layout_width="@dimen/listw"
             android:layout_height="@dimen/listh"
-            android:src="@drawable/xiyang"
-            />
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/xiyang" />
 
         <TextView
             android:id="@+id/textname1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/image1"
-            android:textSize="40dp"
+            android:ellipsize="end"
             android:maxEms="5"
             android:singleLine="true"
-            android:ellipsize="end"
             android:text=""
-            />
+            android:textSize="40dp" />
+
         <TextView
             android:id="@+id/textnianling1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_below="@+id/textbianhao1"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:textSize="30dp"
             android:singleLine="true"
-            android:text=""/>
+            android:text=""
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/textdata1"
@@ -48,14 +51,15 @@
             android:singleLine="true"
             android:text=""
             android:textSize="30dp" />
+
         <TextView
             android:id="@+id/textbianhao1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:textSize="30dp"
             android:singleLine="true"
-            android:text=""/>
+            android:text=""
+            android:textSize="30dp" />
 
 
     </RelativeLayout>

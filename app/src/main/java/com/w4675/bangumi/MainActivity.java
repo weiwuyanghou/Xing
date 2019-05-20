@@ -3,6 +3,7 @@ package com.w4675.bangumi;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -57,12 +58,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       creatTable();   //创建数据库
+    //   creatTable();   //创建数据库
     //    tl = findViewById(R.id.tably);
         vp = findViewById(R.id.viewpager);
         helper = new MyOpenHelper(this);
         db=helper.getReadableDatabase();
         displayView(R.id.shouye);     //初始页面
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
      //   initDatas();
      //   initViewPager();
