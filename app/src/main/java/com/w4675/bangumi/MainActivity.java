@@ -1,5 +1,6 @@
 package com.w4675.bangumi;
 
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private List<String> tabs;
     private List<Fragment> fragments;
     private Intent intent = null;
+    private long exitTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,16 +97,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Example of a call to a native method
        // TextView tv = (TextView) findViewById(R.id.sample_text);
     }
-
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        if ((System.currentTimeMillis() - exitTime) > 2000) {
+            Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
         } else {
-            super.onBackPressed();
+            //彻底关闭整个APP
+            int currentVersion = android.os.Build.VERSION.SDK_INT;
+            if (currentVersion > android.os.Build.VERSION_CODES.ECLAIR_MR1) {
+                Intent startMain = new Intent(Intent.ACTION_MAIN);
+                startMain.addCategory(Intent.CATEGORY_HOME);
+                startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(startMain);
+                System.exit(0);
+            } else {// android2.1
+                ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+                am.restartPackage(getPackageName());
+            }
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

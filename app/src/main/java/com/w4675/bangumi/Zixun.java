@@ -7,6 +7,7 @@ import android.provider.DocumentsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.Person;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +22,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype;
+import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -75,34 +78,6 @@ public class Zixun extends Fragment {
             Elements elements = element.select("a");
             String a=elements.attr("href");
            // Log.e("tag",a);
-         /*   for(Element text : element){
-                Elements img=text.select("img");
-                for (Element xunhuan1 : img) {
-                    String tupiant=xunhuan1.attr("src");
-                    String biaoti=xunhuan1.attr("alt");
-                }
-                Elements jj1=text.select("p");
-                for (Element xunhuan2 : jj1){
-                    String jianjie=xunhuan2.text();
-                }
-                Elements dizhi1=text.select("h4");
-                for (Element xunhuan3 :dizhi1 ){
-                    Elements dz=xunhuan3.select("a");
-                    String dizhi=dz.attr("href");
-                }
-*/
-   /*             String tupiant=img.attr("src");
-                Elements text1=text.select("h4");
-                Elements text2=text1.select("a");
-                String dizhi=text2.attr("href");
-                String biaoti=text2.text();
-                Elements text3=text1.select("p");
-                String jianjie=text3.text();
-                */
-   //             Glide.with(getContext()).load(imglink).diskCacheStrategy(DiskCacheStrategy.SOURCE).fitCenter().into(img);
-          //      Cunchu cunchu = new Cunchu(tupiant,dizhi,biaoti,jianjie);
-       //         cunchuList.add(cunchu);
-     //       }
 
         } catch (Exception e) {
             Log.e("tag", "catch");
@@ -115,64 +90,7 @@ public class Zixun extends Fragment {
 
 
 
-/*    public void JsoupImage() {
-        cunchuList = new ArrayList<Cunchu>();
-        try {
-            Document doc = Jsoup.connect("http://www.ttys5.com/shanshi/shipu/")
-                    //.header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:5.0)Gecko/20100101 Firefox/5.0")
-                    .get();
-            Elements imglinkclass = doc.select("body");
-            Elements imglink=imglinkclass.select("div.main list clearfix");
-            Elements imglink1=imglink.select("ul.con");
-            Elements element=imglink1.select("li.clearfix mt15");
-            for(Element text : element){
-                Elements img=text.select("img");
-                String tupiant=img.attr("src");
-                Elements text1=text.select("h4");
-                Elements text2=text1.select("a");
-                String dizhi=text2.attr("href");
-                String biaoti=text2.text();
-                Elements text3=text1.select("p");
-                String jianjie=text3.text();
-                Cunchu cunchu = new Cunchu(tupiant,dizhi,biaoti,jianjie);
-                cunchuList.add(cunchu);
 
-            }
-*/
-//          Elements imglink=imglinkclass.select("li.clearfix mt15");
-//          Element b=imglink.select("a").first();
-//          for (Element sss : imglinkclass) {
- //               String c = imglink.attr("name");
-//                Log.e("tag", c);
-  //              Toast.makeText(getContext(), c, Toast.LENGTH_SHORT).show();
-        //    }
-/*            for (Element imglinks : imglink) {
-            Elements diyi=imglinks.select("a");
-            Elements dier=imglinks.select("ol");
-            Elements disan=imglinks.select("ul");
-            Elements tupian=diyi.select("img");
-                    String picture = tupian.attr("src");
-                    String biaoti = disan.text();
-                    String jianjie = dier.text();
-             /*       contentValues.put("name", jianjie);
-                    contentValues.put("image", picture);
-                    contentValues.put("ytb", biaoti);*/
-            //       db.insert("information", null, contentValues);
-            //       url.add(picture);
-            //       if (!picture.isEmpty()) {
-            //    Glide.with(this).load(picture).diskCacheStrategy(DiskCacheStrategy.SOURCE).preload();
-            // Log.e("tag", "" + ytblink);
-            //} else {
-            //                      Log.e("tag",picture );*/
-            //}
-            //          }
- /*       } catch (Exception e) {
-            Log.e("tag", "catch");
-            e.printStackTrace();
-        }
-
-        }
-*/
      class MyAdapter  extends BaseAdapter {
          @Override
          public int getCount() {
@@ -191,7 +109,7 @@ public class Zixun extends Fragment {
 
          @Override
          public View getView(int position, View convertView, ViewGroup parent) {
-             Cunchu c=getItem(position);
+             final Cunchu c=getItem(position);
              View v;
              if(convertView==null){
                  v=LayoutInflater.from(getContext()).inflate(R.layout.xinlistview,null);
@@ -199,12 +117,44 @@ public class Zixun extends Fragment {
                 else{
                     v=convertView;
              }
-             TextView textView=v.findViewById(R.id.txv1);
+             final TextView textView=v.findViewById(R.id.txv1);
              TextView textdata=v.findViewById(R.id.txv2);
              textView.setText(c.getBiaoti());
              textdata.setText(c.getShijian());
-             Log.e("tag",c.getDizhi());
+             final NiftyDialogBuilder dialogBuilder1 = NiftyDialogBuilder.getInstance(getContext());
+             textdata.setOnClickListener(new View.OnClickListener() {
+                                             @Override
+                                             public void onClick(View v) {
+                                                 dialogBuilder1.withTitle(textView.getText());
+                                                 dialogBuilder1.withTitleColor("#ffffff");
+                                                 dialogBuilder1.withDialogColor("#23ade5");
+                                                 dialogBuilder1.isCancelableOnTouchOutside(true);
+                                                 dialogBuilder1.withDuration(500);
+                                                 dialogBuilder1.withEffect(Effectstype.Fadein);
+                                                 dialogBuilder1.withButton1Text("查看");
+                                                 dialogBuilder1.setButton1Click(new View.OnClickListener() {
+                                                     Wangye wangye = null;
+                                                     @Override
+                                                     public void onClick(View v) {
+                                                         wangye=new Wangye();
+                                                         FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                                         ft.replace(R.id.cont_frame, wangye);
+                                                         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                                                         ft.addToBackStack(null);
+                                                         ft.commit();
+                                                         Bundle bundle = new Bundle();
+                                                         bundle.putString("dizhi", c.getDizhi());
+                                                         wangye.setArguments(bundle);
+                                                    //     Toast.makeText(getContext(), c.getDizhi(), Toast.LENGTH_SHORT).show();
+                                                         dialogBuilder1.cancel();
+                                                     }
+                                                 }).show();
+
+                                             }
+                                         });
+            // Log.e("tag",c.getDizhi());
              return v;
          }
      }
 }
+
