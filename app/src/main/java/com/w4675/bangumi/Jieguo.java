@@ -117,7 +117,7 @@ public class Jieguo extends Fragment {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
             Result u = getItem(position);
             View v;
@@ -160,6 +160,9 @@ public class Jieguo extends Fragment {
                                 public void onClick(View v) {
                                     Toast.makeText(getContext(),"已删除！",Toast.LENGTH_SHORT).show();
                                     db.delete("information","id = ?" ,new String[]{ Textid.getText().toString()});
+                                    resultList.remove(position);
+                                    notifyDataSetChanged();
+                                    dialogBuilder1.cancel();
                                 }
                             })
                             .setButton2Click(new View.OnClickListener() {

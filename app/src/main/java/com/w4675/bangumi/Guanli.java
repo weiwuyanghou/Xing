@@ -76,7 +76,7 @@ public class Guanli extends Fragment {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             Xianshi u = getItem(position);
             View v;
             if(convertView == null){
@@ -118,6 +118,8 @@ public class Guanli extends Fragment {
                                 public void onClick(View v) {
                                     Toast.makeText(getContext(),"已删除！",Toast.LENGTH_SHORT).show();
                                     db.delete("information","id = ?" ,new String[]{ Textid.getText().toString()});
+                                    xianshiList.remove(position);
+                                    notifyDataSetChanged();
                                     dialogBuilder1.cancel();
                                 }
                             })
